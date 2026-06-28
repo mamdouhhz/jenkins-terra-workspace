@@ -4,7 +4,7 @@ pipeline {
     parameters {
         choice(
             name: 'ENVIRONMENT',
-            choices: ['de', 'stg', 'prod'],
+            choices: ['dev', 'stg', 'prod'],
             description: 'Select the environment'
         )
     }
@@ -12,14 +12,14 @@ pipeline {
     stages {
         stage('Hello World') {
             steps {
-                echo "Hello World from trigger ${params.ENVIRONMENT}"
+                ech "Hello World from trigger ${params.ENVIRONMENT}"
             }
         }
 
         stage('Hello Jenkins') {
             steps {
                 echo "Hello Jenkins from ${params.ENVIRONMENT}"
-            }
+            
         }
     }
 
