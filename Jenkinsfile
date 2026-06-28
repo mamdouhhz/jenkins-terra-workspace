@@ -27,8 +27,20 @@ pipeline {
         success {
             echo 'Pipeline completed successfully!'
         }
+
         failure {
-            echo 'Pipeline failed!'
+            emailext(
+                subject: "❌ ${env.JOB_NAME} #${env.BUILD_NUMBER} Failed",
+                body: """
+Job: ${env.JOB_NAME}
+Build: #${env.BUILD_NUMBER}
+Environment: ${params.ENVIRONMENT}
+
+Build URL:
+${env.BUILD_URL}
+""",
+                to: "mamdouhhazemm@gmail.com"
+            )
         }
     }
 }
