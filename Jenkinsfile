@@ -14,11 +14,13 @@ pipeline {
             steps {
                 echo "Hello World from trigger ${params.ENVIRONMENT}"
             }
+        }
         
 
         stage('Hello Jenkins') {
             steps {
                 echo "Hello Jenkins from ${params.ENVIRONMENT}"
+                error("Intentional failure")
             }
         }
     }
