@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "Hello World from trigger ${params.ENVIRONMENT}"
             }
-        }
+        
 
         stage('Hello Jenkins') {
             steps {
